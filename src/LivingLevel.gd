@@ -18,6 +18,13 @@ func _ready():
 	var switcher = get_node("LightSwitcher")
 	switcher.connect("switch", self, "_on_switcher")
 	var fly = preload("res://Fly.tscn")
+	for n in max_flies:
+		var f = fly.instance()
+		f.position.x = rand_range($Background.position.x, $Background.position.x + 256)
+		f.position.y = rand_range($Background.position.y, $Background.position.y + 100)
+		flies.append(f)
+		add_child(f)
+	
 	
 	randomize()
 	
