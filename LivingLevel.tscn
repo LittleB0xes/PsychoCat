@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Blackcat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://WhiteCat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Piano.tscn" type="PackedScene" id=4]
+[ext_resource path="res://LightSwitcher.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/LivingLevel.gd" type="Script" id=6]
+[ext_resource path="res://ShelfBook.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BlueSofa.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Radio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FishBulb.tscn" type="PackedScene" id=10]
+
+[node name="LivingLevel" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="BlueSofa" parent="." instance=ExtResource( 8 )]
+position = Vector2( 79, 137 )
+
+[node name="Piano" parent="." instance=ExtResource( 4 )]
+position = Vector2( 196, 137 )
+
+[node name="FishBulb" parent="." instance=ExtResource( 10 )]
+position = Vector2( 148, 92 )
+
+[node name="Radio" parent="." instance=ExtResource( 9 )]
+position = Vector2( 204, 104 )
+collision_layer = 2
+
+[node name="ShelfBook" parent="." instance=ExtResource( 7 )]
+position = Vector2( 138, 95 )
+collision_layer = 2
+
+[node name="LightSwitcher" parent="." instance=ExtResource( 5 )]
+position = Vector2( 265, 113 )
+
+[node name="Blackcat" parent="." instance=ExtResource( 1 )]
+position = Vector2( 245, 106 )
+
+[node name="WhiteCat" parent="." instance=ExtResource( 3 )]
+position = Vector2( 83, 102 )
