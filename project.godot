@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Cat.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Area2D",
 "class": "FlyingActor",
 "language": "GDScript",
 "path": "res://src/FlyingActor.gd"
@@ -81,6 +81,7 @@ p2_jump={
 
 2d_physics/layer_1="Actors"
 2d_physics/layer_2="Items"
+2d_physics/layer_3="Flies"
 
 [physics]
 

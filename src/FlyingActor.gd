@@ -1,8 +1,9 @@
-extends KinematicBody2D
+extends Area2D
 
 class_name FlyingActor
 
-
+var nervousness = 0.01
+var speed = 3000
 
 # Declare member variables here. Examples:
 # var a = 2

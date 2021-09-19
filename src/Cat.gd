@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 class_name Cat
+var TIME_BEFORE_SLEEPING = 600
 var speed = 3000
 var jumpStrength = 10000
 var brake = 0.8
@@ -11,6 +12,8 @@ var gravity = 500
 var sight := true
 var jump := false
 
+var timer = TIME_BEFORE_SLEEPING
+var sleeping = true
 var switch := false
 
 var on_the_ground := false
@@ -21,8 +24,29 @@ func _ready():
 
 func _process(_delta):
 	
+	# Flip sprite with sight
 	$AnimatedSprite.flip_h = sight
-	if velocity.y == 0 && direction.x != 0:
+	
+	# Sleeping managment
+	if direction.x == 0 && direction.y == 1 && !jump:
+		
+		if timer <= 0:
+			sleeping = true
+		else:
+			timer -= 1
+	else:
+		timer = TIME_BEFORE_SLEEPING
+		sleeping = false
+	
+		
+	
+	if sleeping:
+		if switch:
+			$AnimatedSprite.play("dark_sleep")
+		else:
+			$AnimatedSprite.play("sleep")
+			
+	elif velocity.y == 0 && direction.x != 0:
 		if switch:
 			$AnimatedSprite.play("dark_walk")
 		else:

@@ -8,29 +8,31 @@ var light_state = true
 signal light
 
 var max_flies = 10
-var flies = []
 
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
 	var switcher = get_node("LightSwitcher")
 	switcher.connect("switch", self, "_on_switcher")
 	var fly = preload("res://Fly.tscn")
 	for n in max_flies:
 		var f = fly.instance()
-		f.position.x = rand_range($Background.position.x, $Background.position.x + 256)
-		f.position.y = rand_range($Background.position.y, $Background.position.y + 100)
-		flies.append(f)
+		f.position.x = rand_range($Background/Sprite.position.x, $Background/Sprite.position.x + 256)
+		f.position.y = rand_range($Background/Sprite.position.y, $Background/Sprite.position.y + 100)
+		f.set_collision_layer(4)
+		#f.set_collision_mask_bit(0, true)
+		f.set_collision_mask(1)
 		add_child(f)
 	
 	
-	randomize()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	#if $LightSwitcher.emit_signal("switch"):
 	if light_state:
 		$Background.show()

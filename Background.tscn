@@ -18,8 +18,9 @@ extents = Vector2( 10, 69 )
 collision_layer = 2
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 160, 89 )
+position = Vector2( 32, 39 )
 texture = ExtResource( 1 )
+offset = Vector2( 128, 50 )
 
 [node name="CollisionGround" type="CollisionShape2D" parent="."]
 position = Vector2( 160, 147 )
