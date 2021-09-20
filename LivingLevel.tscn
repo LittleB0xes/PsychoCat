@@ -15,6 +15,7 @@
 script = ExtResource( 6 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+collision_layer = 8
 
 [node name="BlueSofa" parent="." instance=ExtResource( 8 )]
 position = Vector2( 79, 137 )
@@ -35,6 +36,7 @@ collision_layer = 2
 
 [node name="LightSwitcher" parent="." instance=ExtResource( 5 )]
 position = Vector2( 265, 113 )
+collision_layer = 2
 
 [node name="Blackcat" parent="." instance=ExtResource( 1 )]
 position = Vector2( 245, 106 )

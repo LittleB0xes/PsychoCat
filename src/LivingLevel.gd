@@ -23,15 +23,15 @@ func _ready():
 		f.position.x = rand_range($Background/Sprite.position.x, $Background/Sprite.position.x + 256)
 		f.position.y = rand_range($Background/Sprite.position.y, $Background/Sprite.position.y + 100)
 		f.set_collision_layer(4)
-		#f.set_collision_mask_bit(0, true)
-		f.set_collision_mask(1)
+		#f.set_collision_mask_bit(0, false)
+		f.set_collision_mask(8)
 		add_child(f)
 	
 	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	#if $LightSwitcher.emit_signal("switch"):
 	if light_state:
@@ -52,6 +52,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		light_state = !light_state
+		emit_signal("light")
 #	pass
 
 func _on_switcher():

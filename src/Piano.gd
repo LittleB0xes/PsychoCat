@@ -17,35 +17,28 @@ func _ready():
 
 func _on_C_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Do")
 		$Do.play()
 
 func _on_D_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Re")
 		$Re.play()
 
 func _on_E_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Mi")
 		$Mi.play()
 
 func _on_F_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Fa")
 		$Fa.play()
 
 func _on_G_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Sol")
 		$Sol.play()
 
 func _on_A_body_entered(body):
 	if body.velocity.y >= 0:
-		print("La")
 		$La.play()
 
 func _on_B_body_entered(body):
 	if body.velocity.y >= 0:
-		print("Si")
 		$Si.play()

@@ -18,5 +18,4 @@ func _ready():
 
 
 func _on_LightSwitcher_body_entered(body):
-	print("Switch the light")
 	emit_signal("switch")
