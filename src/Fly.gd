@@ -1,19 +1,6 @@
-extends KinematicBody2D
+extends FlyingActor
 
-var speed = 20
-var velocity = Vector2.ZERO
-var theta := 0.0
 
-var collide = false
-
-var switch = false
-
-func _ready():
-	$AnimatedSprite.play("fly")
-	theta = rand_range(0.0, PI * 2)
-	
-	var light = get_node("../")
-	light.connect("light", self, "_light_switch")
 
 func _process(delta):
 	if switch:
@@ -51,6 +38,7 @@ func _physics_process(_delta):
 
 func _on_Area2D_body_entered(body):
 	if body is Cat && !body.sleeping:
+		body.score += point
 		queue_free()
 	
 func _light_switch():

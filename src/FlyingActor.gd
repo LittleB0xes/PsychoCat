@@ -1,10 +1,15 @@
-extends Area2D
+extends KinematicBody2D
 
 class_name FlyingActor
+var speed = 20
+var velocity = Vector2.ZERO
 
-var nervousness = 0.01
-var speed = 3000
+# point for catching : 1 for fly and -1 for bee
+var point = 1
 
+var collide = false
+var switch = false
+var theta := 0.0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,7 +17,11 @@ var speed = 3000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimatedSprite.play("fly")
+	theta = rand_range(0.0, PI * 2)
+	
+	var light = get_node("../")
+	light.connect("light", self, "_light_switch")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +30,5 @@ func _process(delta):
 
 func _physics_process(delta):
 	pass
+	
+

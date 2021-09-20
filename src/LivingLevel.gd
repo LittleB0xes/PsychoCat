@@ -33,6 +33,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
+	$GameUI/BlackScore.set_text(String($Blackcat.score))
+	$GameUI/WhiteScore.set_text(String($WhiteCat.score))
 	#if $LightSwitcher.emit_signal("switch"):
 	if light_state:
 		$Background.show()

@@ -16,6 +16,8 @@ var timer = TIME_BEFORE_SLEEPING
 var sleeping = true
 var switch := false
 
+var score = 0
+
 var on_the_ground := false
 
 func _ready():
